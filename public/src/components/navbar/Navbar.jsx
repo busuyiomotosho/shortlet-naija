@@ -5,19 +5,23 @@ import React, { useState } from "react";
 import { FiGlobe } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import ContextMenu from "../common/ContextMenu";
+import { useAppStore } from "airbnb/store/store";
 
 const Navbar = () => {
+  const { setAuthModal } = useAppStore();
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
   const contextMenuOptions = [
     {
       name: "Login",
       callBack: () => {
+        setAuthModal();
         setIsContextMenuVisible(false);
       },
     },
     {
       name: "Signup",
       callBack: () => {
+        setAuthModal();
         setIsContextMenuVisible(false);
       },
     },
