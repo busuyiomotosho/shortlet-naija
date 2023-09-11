@@ -9,6 +9,7 @@ export type ListingOrderByInput = {
   locationData?: SortOrder;
   locationType?: SortOrder;
   mapData?: SortOrder;
+  placeAmenities?: SortOrder;
   placeSpace?: SortOrder;
   placeType?: SortOrder;
   price?: SortOrder;

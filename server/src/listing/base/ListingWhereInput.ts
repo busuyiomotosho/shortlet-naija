@@ -109,6 +109,17 @@ class ListingWhereInput {
   @Field(() => JsonFilter, {
     nullable: true,
   })
+  placeAmenities?: JsonFilter;
+
+  @ApiProperty({
+    required: false,
+    type: JsonFilter,
+  })
+  @Type(() => JsonFilter)
+  @IsOptional()
+  @Field(() => JsonFilter, {
+    nullable: true,
+  })
   placeSpace?: JsonFilter;
 
   @ApiProperty({

@@ -76,6 +76,7 @@ export class ListingControllerBase {
         locationData: true,
         locationType: true,
         mapData: true,
+        placeAmenities: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -116,6 +117,7 @@ export class ListingControllerBase {
         locationData: true,
         locationType: true,
         mapData: true,
+        placeAmenities: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -157,6 +159,7 @@ export class ListingControllerBase {
         locationData: true,
         locationType: true,
         mapData: true,
+        placeAmenities: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -213,6 +216,7 @@ export class ListingControllerBase {
           locationData: true,
           locationType: true,
           mapData: true,
+          placeAmenities: true,
           placeSpace: true,
           placeType: true,
           price: true,
@@ -262,6 +266,7 @@ export class ListingControllerBase {
           locationData: true,
           locationType: true,
           mapData: true,
+          placeAmenities: true,
           placeSpace: true,
           placeType: true,
           price: true,
@@ -304,6 +309,7 @@ export class ListingControllerBase {
           },
         },
 
+        tripInfo: true,
         updatedAt: true,
 
         user: {

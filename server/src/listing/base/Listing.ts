@@ -15,8 +15,8 @@ import {
   IsDate,
   IsString,
   ValidateNested,
-  IsOptional,
   IsNumber,
+  IsOptional,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { IsJSONValue } from "@app/custom-validators";
@@ -90,13 +90,17 @@ class Listing {
   mapData!: JsonValue;
 
   @ApiProperty({
-    required: false,
+    required: true,
   })
   @IsJSONValue()
-  @IsOptional()
-  @Field(() => GraphQLJSON, {
-    nullable: true,
+  @Field(() => GraphQLJSON)
+  placeAmenities!: JsonValue;
+
+  @ApiProperty({
+    required: true,
   })
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
   placeSpace!: JsonValue;
 
   @ApiProperty({

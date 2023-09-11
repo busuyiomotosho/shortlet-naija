@@ -240,6 +240,7 @@ export class UserControllerBase {
         locationData: true,
         locationType: true,
         mapData: true,
+        placeAmenities: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -346,6 +347,7 @@ export class UserControllerBase {
           },
         },
 
+        tripInfo: true,
         updatedAt: true,
 
         user: {

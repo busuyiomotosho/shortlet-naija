@@ -12,6 +12,7 @@ export type Listing = {
   locationData: JsonValue;
   locationType: string;
   mapData: JsonValue;
+  placeAmenities: JsonValue;
   placeSpace: JsonValue;
   placeType: string;
   price: number;
