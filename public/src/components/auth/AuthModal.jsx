@@ -3,20 +3,39 @@ import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import FormInput from "../common/FormInput";
 import { useAppStore } from "airbnb/store/store";
+import { checkUser, login, signup } from "airbnb/lib/auth";
 
 const AuthModal = () => {
-  const { setAuthModal } = useAppStore();
+  const { setAuthModal, setIsLoggedIn, setUserInfo } = useAppStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userFound, setUserFound] = useState(null);
 
-  const verifyEmail = async () => {};
+  const verifyEmail = async () => {
+    const data = await checkUser(email);
+    if (!data) setUserFound(false);
+    else setUserFound(true);
+  };
 
-  const handleLogin = async () => {};
+  const handleLogin = async () => {
+    if (email && password) {
+      const data = await login(email, password);
+      setAuthModal();
+      setUserInfo(data);
+      setIsLoggedIn(true);
+    }
+  };
 
-  const handleSignup = async () => {};
+  const handleSignup = async () => {
+    if (email && password && firstName && lastName) {
+      const data = await signup(email, password, firstName, lastName);
+      setAuthModal();
+      setUserInfo(data);
+      setIsLoggedIn(true);
+    }
+  };
 
   return (
     <div className="relative z-50">
@@ -34,7 +53,13 @@ const AuthModal = () => {
                 >
                   <IoMdClose />
                 </span>
-                <span>Login or Signup</span>
+                {userFound === null ? (
+                  <span>Login or Signup</span>
+                ) : (
+                  <span>
+                    {userFound === true ? "Log in" : "Sign up"} {email}
+                  </span>
+                )}
               </div>
               <div className="p-5">
                 <h3 className="text-xl pb-5">Welcome to Shortlet Naija</h3>

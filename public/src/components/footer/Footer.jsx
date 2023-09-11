@@ -27,7 +27,7 @@ export default function Footer() {
         <li className="flex items-center gap-2 cursor-pointer">
           <FiGlobe /> English (US)
         </li>
-        <li className="cursor-pointer">$ USD</li>
+        <li className="cursor-pointer">₦ NGN</li>
         <li className="flex items-center gap-2 cursor-pointer">
           Support & Resources <PiCaretUpBold />
         </li>

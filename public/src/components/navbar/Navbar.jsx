@@ -8,7 +8,7 @@ import ContextMenu from "../common/ContextMenu";
 import { useAppStore } from "airbnb/store/store";
 
 const Navbar = () => {
-  const { setAuthModal } = useAppStore();
+  const { setAuthModal, userInfo, setUserInfo } = useAppStore();
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
   const contextMenuOptions = [
     {
@@ -38,6 +38,53 @@ const Navbar = () => {
       },
     },
   ];
+
+  const authenticatedContextMenuOptions = [
+    {
+      name: "Messages",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Notifications",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Trips",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Wishlists",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Manage Listings",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Help",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Logout",
+      callBack: () => {
+        setUserInfo(null);
+        setIsContextMenuVisible(false);
+        localStorage.clear();
+      },
+    },
+  ];
   return (
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 border-b border-b-bray-200d">
       <div className="flex items-center justify-between px-20">
@@ -49,7 +96,7 @@ const Navbar = () => {
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
             <li className="cursor-pointer">
-              <span>Shortlet Naija Home</span>
+              <span>Short-let Your Home</span>
             </li>
             <li className="cursor-pointer">
               <FiGlobe />
@@ -59,14 +106,20 @@ const Navbar = () => {
               onClick={() => setIsContextMenuVisible(true)}
             >
               <RxHamburgerMenu />
-              <span>
-                <Image
-                  src="/empty-profile.png"
-                  alt="profile"
-                  height={30}
-                  width={30}
-                />
-              </span>
+              {userInfo ? (
+                <span className="flex justify-center items-center bg-black text-white h-7 w-7 text-sm rounded-full">
+                  {userInfo?.firstName?.split("").shift().toUpperCase()}
+                </span>
+              ) : (
+                <span>
+                  <Image
+                    src="/empty-profile.png"
+                    alt="profile"
+                    height={30}
+                    width={30}
+                  />
+                </span>
+              )}
             </li>
           </ul>
         </div>
@@ -79,7 +132,9 @@ const Navbar = () => {
             x: window.innerWidth - 250,
             y: 70,
           }}
-          options={contextMenuOptions}
+          options={
+            userInfo ? authenticatedContextMenuOptions : contextMenuOptions
+          }
         />
       )}
     </header>

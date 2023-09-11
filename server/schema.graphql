@@ -2,6 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CheckUserValues {
+  email: String!
+}
+
 input Credentials {
   password: String!
   username: String!
@@ -47,7 +51,8 @@ type Listing {
   locationData: JSON!
   locationType: String!
   mapData: JSON!
-  placeSpace: JSON
+  placeAmenities: JSON!
+  placeSpace: JSON!
   placeType: String!
   price: Float!
   title: String!
@@ -63,12 +68,23 @@ input ListingCreateInput {
   locationData: JSON!
   locationType: String!
   mapData: JSON!
-  placeSpace: JSON
+  placeAmenities: JSON!
+  placeSpace: JSON!
   placeType: String!
   price: Float!
   title: String!
   trips: TripCreateNestedManyWithoutListingsInput
   wishlists: WishlistCreateNestedManyWithoutListingsInput
+}
+
+input ListingCreateNestedManyWithoutUsersInput {
+  connect: [ListingWhereUniqueInput!]
+}
+
+input ListingListRelationFilter {
+  every: ListingWhereInput
+  none: ListingWhereInput
+  some: ListingWhereInput
 }
 
 input ListingOrderByInput {
@@ -80,6 +96,7 @@ input ListingOrderByInput {
   locationData: SortOrder
   locationType: SortOrder
   mapData: SortOrder
+  placeAmenities: SortOrder
   placeSpace: SortOrder
   placeType: SortOrder
   price: SortOrder
@@ -94,12 +111,19 @@ input ListingUpdateInput {
   locationData: JSON
   locationType: String
   mapData: JSON
+  placeAmenities: JSON
   placeSpace: JSON
   placeType: String
   price: Float
   title: String
   trips: TripUpdateManyWithoutListingsInput
   wishlists: WishlistUpdateManyWithoutListingsInput
+}
+
+input ListingUpdateManyWithoutUsersInput {
+  connect: [ListingWhereUniqueInput!]
+  disconnect: [ListingWhereUniqueInput!]
+  set: [ListingWhereUniqueInput!]
 }
 
 input ListingWhereInput {
@@ -110,6 +134,7 @@ input ListingWhereInput {
   locationData: JsonFilter
   locationType: StringFilter
   mapData: JsonFilter
+  placeAmenities: JsonFilter
   placeSpace: JsonFilter
   placeType: StringFilter
   price: FloatFilter
@@ -136,6 +161,7 @@ type Mutation {
   deleteUser(where: UserWhereUniqueInput!): User!
   deleteWishlist(where: WishlistWhereUniqueInput!): Wishlist!
   login(credentials: Credentials!): UserInfo!
+  signup(credentials: Credentials!): UserInfo!
   updateListing(data: ListingUpdateInput!, where: ListingWhereUniqueInput!): Listing!
   updateTrip(data: TripUpdateInput!, where: TripWhereUniqueInput!): Trip!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
@@ -147,8 +173,10 @@ type Query {
   _tripsMeta(where: TripWhereInput): MetaQueryPayload!
   _usersMeta(where: UserWhereInput): MetaQueryPayload!
   _wishlistsMeta(where: WishlistWhereInput): MetaQueryPayload!
+  checkUser(CheckUserValues: CheckUserValues!): User!
   listing(where: ListingWhereUniqueInput!): Listing
   listings(orderBy: [ListingOrderByInput!], skip: Float, take: Float, where: ListingWhereInput): [Listing!]!
+  me: User!
   trip(where: TripWhereUniqueInput!): Trip
   trips(orderBy: [TripOrderByInput!], skip: Float, take: Float, where: TripWhereInput): [Trip!]!
   user(where: UserWhereUniqueInput!): User
@@ -202,12 +230,14 @@ type Trip {
   createdAt: DateTime!
   id: String!
   listing: Listing
+  tripInfo: JSON!
   updatedAt: DateTime!
   user: User
 }
 
 input TripCreateInput {
   listing: ListingWhereUniqueInput!
+  tripInfo: JSON!
   user: UserWhereUniqueInput!
 }
 
@@ -229,12 +259,14 @@ input TripOrderByInput {
   createdAt: SortOrder
   id: SortOrder
   listingId: SortOrder
+  tripInfo: SortOrder
   updatedAt: SortOrder
   userId: SortOrder
 }
 
 input TripUpdateInput {
   listing: ListingWhereUniqueInput
+  tripInfo: JSON
   user: UserWhereUniqueInput
 }
 
@@ -253,6 +285,7 @@ input TripUpdateManyWithoutUsersInput {
 input TripWhereInput {
   id: StringFilter
   listing: ListingWhereUniqueInput
+  tripInfo: JsonFilter
   user: UserWhereUniqueInput
 }
 
@@ -265,7 +298,7 @@ type User {
   firstName: String
   id: String!
   lastName: String
-  listings: Listing
+  listings(orderBy: [ListingOrderByInput!], skip: Float, take: Float, where: ListingWhereInput): [Listing!]!
   roles: JSON!
   trips(orderBy: [TripOrderByInput!], skip: Float, take: Float, where: TripWhereInput): [Trip!]!
   updatedAt: DateTime!
@@ -276,7 +309,7 @@ type User {
 input UserCreateInput {
   firstName: String
   lastName: String
-  listings: ListingWhereUniqueInput
+  listings: ListingCreateNestedManyWithoutUsersInput
   password: String!
   roles: JSON!
   trips: TripCreateNestedManyWithoutUsersInput
@@ -296,7 +329,6 @@ input UserOrderByInput {
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
-  listingsId: SortOrder
   password: SortOrder
   roles: SortOrder
   updatedAt: SortOrder
@@ -306,7 +338,7 @@ input UserOrderByInput {
 input UserUpdateInput {
   firstName: String
   lastName: String
-  listings: ListingWhereUniqueInput
+  listings: ListingUpdateManyWithoutUsersInput
   password: String
   roles: JSON
   trips: TripUpdateManyWithoutUsersInput
@@ -318,7 +350,7 @@ input UserWhereInput {
   firstName: StringNullableFilter
   id: StringFilter
   lastName: StringNullableFilter
-  listings: ListingWhereUniqueInput
+  listings: ListingListRelationFilter
   trips: TripListRelationFilter
   username: StringFilter
   wishlists: WishlistListRelationFilter
