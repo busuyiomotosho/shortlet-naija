@@ -33,7 +33,7 @@ model Listing {
   mapData            Json
   placeSpace         Json?
   placeType          String
-  price              Decimal
+  price              Float
   title              String
   trips              Trip[]
   updatedAt          DateTime   @updatedAt

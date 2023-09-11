@@ -24,7 +24,7 @@ const CREATE_INPUT = {
   id: "exampleId",
   locationType: "exampleLocationType",
   placeType: "examplePlaceType",
-  price: 42.424242424,
+  price: 42.42,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
@@ -34,7 +34,7 @@ const CREATE_RESULT = {
   id: "exampleId",
   locationType: "exampleLocationType",
   placeType: "examplePlaceType",
-  price: 42.424242424,
+  price: 42.42,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
@@ -45,7 +45,7 @@ const FIND_MANY_RESULT = [
     id: "exampleId",
     locationType: "exampleLocationType",
     placeType: "examplePlaceType",
-    price: 42.424242424,
+    price: 42.42,
     title: "exampleTitle",
     updatedAt: new Date(),
   },
@@ -56,7 +56,7 @@ const FIND_ONE_RESULT = {
   id: "exampleId",
   locationType: "exampleLocationType",
   placeType: "examplePlaceType",
-  price: 42.424242424,
+  price: 42.42,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
