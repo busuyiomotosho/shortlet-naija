@@ -9,7 +9,7 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-import { ObjectType, Field } from "@nestjs/graphql";
+import { ObjectType, Field, Float } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
   IsDate,
@@ -23,6 +23,7 @@ import { IsJSONValue } from "@app/custom-validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
 import { User } from "../../user/base/User";
+import { Decimal } from "decimal.js";
 import { Trip } from "../../trip/base/Trip";
 import { Wishlist } from "../../wishlist/base/Wishlist";
 
@@ -112,8 +113,8 @@ class Listing {
     type: Number,
   })
   @IsNumber()
-  @Field(() => Number)
-  price!: number;
+  @Field(() => Float)
+  price!: Decimal;
 
   @ApiProperty({
     required: true,

@@ -1,5 +1,6 @@
 import { InputJsonValue } from "../../types";
 import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
+import { Decimal } from "decimal.js";
 import { TripUpdateManyWithoutListingsInput } from "./TripUpdateManyWithoutListingsInput";
 import { WishlistUpdateManyWithoutListingsInput } from "./WishlistUpdateManyWithoutListingsInput";
 
@@ -12,7 +13,7 @@ export type ListingUpdateInput = {
   mapData?: InputJsonValue;
   placeSpace?: InputJsonValue;
   placeType?: string;
-  price?: number;
+  price?: Decimal;
   title?: string;
   trips?: TripUpdateManyWithoutListingsInput;
   wishlists?: WishlistUpdateManyWithoutListingsInput;

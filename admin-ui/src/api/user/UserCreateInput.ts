@@ -1,4 +1,4 @@
-import { ListingWhereUniqueInput } from "../listing/ListingWhereUniqueInput";
+import { ListingCreateNestedManyWithoutUsersInput } from "./ListingCreateNestedManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 import { TripCreateNestedManyWithoutUsersInput } from "./TripCreateNestedManyWithoutUsersInput";
 import { WishlistCreateNestedManyWithoutUsersInput } from "./WishlistCreateNestedManyWithoutUsersInput";
@@ -6,7 +6,7 @@ import { WishlistCreateNestedManyWithoutUsersInput } from "./WishlistCreateNeste
 export type UserCreateInput = {
   firstName?: string | null;
   lastName?: string | null;
-  listings?: ListingWhereUniqueInput | null;
+  listings?: ListingCreateNestedManyWithoutUsersInput;
   password: string;
   roles: InputJsonValue;
   trips?: TripCreateNestedManyWithoutUsersInput;

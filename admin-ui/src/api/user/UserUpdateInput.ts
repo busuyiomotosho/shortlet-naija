@@ -1,4 +1,4 @@
-import { ListingWhereUniqueInput } from "../listing/ListingWhereUniqueInput";
+import { ListingUpdateManyWithoutUsersInput } from "./ListingUpdateManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 import { TripUpdateManyWithoutUsersInput } from "./TripUpdateManyWithoutUsersInput";
 import { WishlistUpdateManyWithoutUsersInput } from "./WishlistUpdateManyWithoutUsersInput";
@@ -6,7 +6,7 @@ import { WishlistUpdateManyWithoutUsersInput } from "./WishlistUpdateManyWithout
 export type UserUpdateInput = {
   firstName?: string | null;
   lastName?: string | null;
-  listings?: ListingWhereUniqueInput | null;
+  listings?: ListingUpdateManyWithoutUsersInput;
   password?: string;
   roles?: InputJsonValue;
   trips?: TripUpdateManyWithoutUsersInput;

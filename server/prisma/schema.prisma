@@ -12,7 +12,7 @@ model User {
   firstName String?
   id        String     @id @default(cuid())
   lastName  String?
-  listings  Listing?
+  listings  Listing[]
   password  String
   roles     Json
   trips     Trip[]
@@ -27,13 +27,13 @@ model Listing {
   id                 String     @id @default(cuid())
   images             Json
   listingCreatedBy   User       @relation(fields: [listingCreatedById], references: [id])
-  listingCreatedById String     @unique
+  listingCreatedById String
   locationData       Json
   locationType       String
   mapData            Json
   placeSpace         Json?
   placeType          String
-  price              Float
+  price              Decimal
   title              String
   trips              Trip[]
   updatedAt          DateTime   @updatedAt
