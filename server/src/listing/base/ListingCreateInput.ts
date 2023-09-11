@@ -14,8 +14,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsString,
   ValidateNested,
-  IsOptional,
   IsNumber,
+  IsOptional,
 } from "class-validator";
 import { IsJSONValue } from "@app/custom-validators";
 import { GraphQLJSON } from "graphql-type-json";
@@ -74,14 +74,18 @@ class ListingCreateInput {
   mapData!: InputJsonValue;
 
   @ApiProperty({
-    required: false,
+    required: true,
   })
   @IsJSONValue()
-  @IsOptional()
-  @Field(() => GraphQLJSON, {
-    nullable: true,
+  @Field(() => GraphQLJSON)
+  placeAmenities!: InputJsonValue;
+
+  @ApiProperty({
+    required: true,
   })
-  placeSpace?: InputJsonValue;
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  placeSpace!: InputJsonValue;
 
   @ApiProperty({
     required: true,

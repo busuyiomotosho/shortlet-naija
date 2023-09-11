@@ -45,6 +45,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             <TextField label="locationData" source="locationData" />
             <TextField label="locationType" source="locationType" />
             <TextField label="mapData" source="mapData" />
+            <TextField label="placeAmenities" source="placeAmenities" />
             <TextField label="placeSpace" source="placeSpace" />
             <TextField label="placeType" source="placeType" />
             <TextField label="price" source="price" />
@@ -63,6 +64,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={LISTING_TITLE_FIELD} />
             </ReferenceField>
+            <TextField label="tripInfo" source="tripInfo" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField label="user" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />

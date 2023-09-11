@@ -10,6 +10,7 @@ export type ListingUpdateInput = {
   locationData?: InputJsonValue;
   locationType?: string;
   mapData?: InputJsonValue;
+  placeAmenities?: InputJsonValue;
   placeSpace?: InputJsonValue;
   placeType?: string;
   price?: number;
