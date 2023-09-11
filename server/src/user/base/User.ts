@@ -62,12 +62,12 @@ class User {
 
   @ApiProperty({
     required: false,
-    type: () => Listing,
+    type: () => [Listing],
   })
   @ValidateNested()
   @Type(() => Listing)
   @IsOptional()
-  listings?: Listing | null;
+  listings?: Array<Listing>;
 
   @ApiProperty({
     required: true,

@@ -24,7 +24,7 @@ const CREATE_INPUT = {
   id: "exampleId",
   locationType: "exampleLocationType",
   placeType: "examplePlaceType",
-  price: 42.42,
+  price: 42.424242424,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
@@ -34,7 +34,7 @@ const CREATE_RESULT = {
   id: "exampleId",
   locationType: "exampleLocationType",
   placeType: "examplePlaceType",
-  price: 42.42,
+  price: 42.424242424,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
@@ -45,7 +45,7 @@ const FIND_MANY_RESULT = [
     id: "exampleId",
     locationType: "exampleLocationType",
     placeType: "examplePlaceType",
-    price: 42.42,
+    price: 42.424242424,
     title: "exampleTitle",
     updatedAt: new Date(),
   },
@@ -56,7 +56,7 @@ const FIND_ONE_RESULT = {
   id: "exampleId",
   locationType: "exampleLocationType",
   placeType: "examplePlaceType",
-  price: 42.42,
+  price: 42.424242424,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
@@ -184,7 +184,7 @@ describe("Listing", () => {
   });
 
   test("POST /listings existing resource", async () => {
-    let agent = request(app.getHttpServer());
+    const agent = request(app.getHttpServer());
     await agent
       .post("/listings")
       .send(CREATE_INPUT)
