@@ -13,6 +13,10 @@
   scrollbar-width: none; /* Firefox */
 }
 
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 .control-panel {
   position: absolute;
   top: 0;
