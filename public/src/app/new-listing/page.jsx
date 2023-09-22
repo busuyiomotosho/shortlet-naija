@@ -1,12 +1,19 @@
 "use client";
+import Description from "airbnb/components/process/Description";
+import FloorPlan from "airbnb/components/process/FloorPlan";
+import Images from "airbnb/components/process/Images";
+import ListingCreated from "airbnb/components/process/ListingCreated";
 import ListingPlaceType from "airbnb/components/process/ListingPlaceType";
 import ListingTypeSelector from "airbnb/components/process/ListingTypeSelector";
 import Overview from "airbnb/components/process/Overview";
 import PlaceDetails from "airbnb/components/process/PlaceDetails";
 import PlaceLocation from "airbnb/components/process/PlaceLocation";
+import Price from "airbnb/components/process/Price";
+import ProcessAmenities from "airbnb/components/process/ProcessAmenities";
 import StepOneStarter from "airbnb/components/process/StepOneStarter";
 import StepThreeStarter from "airbnb/components/process/StepThreeStarter";
 import StepTwoStarter from "airbnb/components/process/StepTwoStarter";
+import Title from "airbnb/components/process/Title";
 import AirBnbLogoShort from "airbnb/svg/airbnb-logo-short";
 import React, { useState } from "react";
 
@@ -27,6 +34,26 @@ const page = () => {
         return <PlaceLocation />;
       case 5:
         return <PlaceDetails />;
+      case 6:
+        return <FloorPlan />;
+      case 7:
+        return <StepTwoStarter />;
+      case 8:
+        return <ProcessAmenities />;
+      case 9:
+        return <Images />;
+      case 10:
+        return <Title />;
+      case 11:
+        return <Description />;
+      case 12:
+        return <StepThreeStarter />;
+      case 13:
+        return <Price />;
+      case 14:
+        return <ListingCreated />;
+      default:
+        return <></>;
     }
   };
 
