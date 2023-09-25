@@ -21,12 +21,40 @@ const PlaceDetails = () => {
         <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
             isListing
-            name="country"
-            placeholder="Country"
+            name="locality"
+            placeholder="Street Address"
             setValue={handleChange}
             type="text"
-            value={locationData?.country}
+            value={locationData?.locality}
           />
+          <FormInput
+            isListing
+            name="landmark"
+            placeholder="Area (if applicable)"
+            setValue={handleChange}
+            type="text"
+            value={locationData?.landmark}
+          />
+        </div>
+        <div className="flex flex-col gap-2 w-[30%]">
+          <FormInput
+            isListing
+            name="district"
+            placeholder="LGA"
+            setValue={handleChange}
+            type="text"
+            value={locationData?.district}
+          />
+          <FormInput
+            isListing
+            name="place"
+            placeholder="Landmark (if applicable)"
+            setValue={handleChange}
+            type="text"
+            value={locationData?.place}
+          />
+        </div>
+        <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
             isListing
             name="neighborhood"
@@ -35,41 +63,13 @@ const PlaceDetails = () => {
             type="text"
             value={locationData?.neighborhood}
           />
-        </div>
-        <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
             isListing
-            name="place"
-            placeholder="Area (if applicable)"
+            name="country"
+            placeholder="Country"
             setValue={handleChange}
             type="text"
-            value={locationData?.place}
-          />
-          <FormInput
-            isListing
-            name="locality"
-            placeholder="Street Address"
-            setValue={handleChange}
-            type="text"
-            value={locationData?.locality}
-          />
-        </div>
-        <div className="flex flex-col gap-2 w-[30%]">
-          <FormInput
-            isListing
-            name="landmark"
-            placeholder="Landmark (if applicable)"
-            setValue={handleChange}
-            type="text"
-            value={locationData?.landmark}
-          />
-          <FormInput
-            isListing
-            name="district"
-            placeholder="LGA"
-            setValue={handleChange}
-            type="text"
-            value={locationData?.district}
+            value={locationData?.country}
           />
         </div>
       </div>

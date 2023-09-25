@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import NavigationEvents from "airbnb/components/common/NavigationEvents";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -31,7 +33,12 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         ></link>
       </head>
-      <body className="font-poppins">{children}</body>
+      <body className="font-poppins">
+        {children}
+        <Suspense fallback={null}>
+          <NavigationEvents />
+        </Suspense>
+      </body>
     </html>
   );
 }

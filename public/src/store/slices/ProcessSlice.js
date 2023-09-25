@@ -6,6 +6,9 @@ export const createProcessSlice = (set, get) => ({
   placeSpace: { bathroom: 1, beds: 1, guests: 4 },
   placeAmenities: [],
   images: [],
+  title: "",
+  description: "",
+  price: 0,
   setLocationType: (locationType) => set({ locationType }),
   setPlaceType: (placeType) => set({ placeType }),
   setMapData: (mapData) => set({ mapData }),
@@ -13,4 +16,7 @@ export const createProcessSlice = (set, get) => ({
   setPlaceSpace: (placeSpace) => set({ placeSpace }),
   setPlaceAmenities: (placeAmenities) => set({ placeAmenities }),
   setImages: (images) => set({ images }),
+  setTitle: (title) => set({ title }),
+  setDescription: (description) => set({ description }),
+  setPrice: (price) => set({ price }),
 });
